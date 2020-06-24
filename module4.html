@@ -2,43 +2,59 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Module 4 Solution</title>
   <script>
-    var names = []; 
+    (function () {
+
+var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+
+(function(window) {
+  var helloSpeaker = {};
+  var speakWord = "Hello";
+  var helloSpeaker = function (name) {
+    console.log(speakWord + " " + name);
+  }
+
+  window.helloSpeaker = helloSpeaker;
+
+})(window);
+
+(function(window) {
+  var byeSpeaker = {};
+  var speakWord = "Good Bye";
+  var byeSpeaker = function (name) {
+      console.log(speakWord + " " + name);
+  }
   
-
-    (function (window) {
-var helloSpeaker = {};
-var speakWord = "Hello";
-helloSpeaker.speak = function () {
-  console.log(speakWord + " Siddharth" + name);
-}
-
-window.helloSpeaker = helloSpeaker;
+  window.byeSpeaker = byeSpeaker;
 
 })(window);
 
+for (var i = 0; i < names.length; i++) {
+  var firstLetter = names[i].charAt(0).toLowerCase();
 
-    (function (window) {
-
-var byeSpeaker = {};
-
-var speakWord = "Good Bye ";
-
-byeSpeaker.speak = function () {
-  console.log(speakWord + "Siddharth " + name);
+  if (firstLetter === 'j') {
+    byeSpeaker(names[i]);
+  }
+  else {
+    helloSpeaker(names[i]);
+  }
 }
 
-window.byeSpeaker = byeSpeaker;
+})();
 
-})(window);
 
-helloSpeaker.speak();
-byeSpeaker.speak();
-  </script>
+</script>
+  <title>Module 4 Solution</title>
+  
+  <style>
+    body {background-color: black;}
+    h1,h2   {color: lime;}
+    
+  </style>
 </head>
-<body>
+<body background-color = "black">
   <h1>Siddharth's Module 4 Solution</h1>
-  <h3>Inspect the page and checkout the Console in the Developer Tools.</h3>
+  <h2>Inspect the page and checkout the Console in the Developer Tools.</h2>
+    
 </body>
 </html>
